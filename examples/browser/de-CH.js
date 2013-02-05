@@ -1,0 +1,1 @@
+Mondo.addTranslations('de-CH', { foo: 'foo'});
