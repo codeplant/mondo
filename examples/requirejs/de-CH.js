@@ -1,5 +1,5 @@
 define(['mondo','culture-de-CH'],function(Mondo){
     
-    Mondo.addTranslations('de-CH', { foo: 'foo'});
+    Mondo.addCultureInfo('de-CH', { messages: { foo: 'foo'}});
 
 });

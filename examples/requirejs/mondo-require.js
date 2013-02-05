@@ -1,5 +1,5 @@
 require.config({
-    debs: ['mondo-browser'],
+    debs: ['mondo-require'],
     paths: {
         'jquery': 'lib/jquery',
         'underscore': 'lib/underscore',
@@ -28,7 +28,7 @@ require.config({
     }
 });
 
-define('mondo-browser',['jquery','mondo','de-CH'], function($,Mondo){
+define('mondo-require',['jquery','mondo','de-CH'], function($,Mondo){
     Mondo.culture('de-CH');
     $('body').append(Mondo.l('foo'));
 });
