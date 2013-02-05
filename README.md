@@ -32,15 +32,15 @@ Setting current locale
 Formatting
 ----------
 
-### Mondo.format(value, format) alias: Mondo.f(value, format)
+`Mondo.format(value, format)` alias: `Mondo.f(value, format)`
 
 Formats the given value according to the format. Please see (https://github.com/jquery/globalize#format) for details and formatting patterns.
 
-### Mondo.date(date) alias: Mondo.d(date)
+`Mondo.date(date)` alias: `Mondo.d(date)`
 
 Shortcut for format(date, 'd') uses the short date pattern. e.g. "dd.MM.yyyy" for de-CH locale
 
-### Mondo.time(date) alias: Mondo.t(date)
+`Mondo.time(date)` alias: `Mondo.t(date)
 
 Shortcut for format(date, 't') uses the short time pattern. e.g. "" for de-CH locale
 
