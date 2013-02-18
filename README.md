@@ -8,21 +8,13 @@ Under the hood
 
 mondo uses several other libraries under the hood:
 
-*   [globalize](https://github.com/jquery/globalize)
+*   [globalize](https://github.com/jquery/globalize) - This library does the heavy lifting. globalize provides all the locale information for formatting and parsing.
 
-    This library does the heavy lifting. globalize provides all the locale information for formatting and parsing.
+*   [handlebars](http://handlebarsjs.com) - mondo uses handlebar templates for string interpolation
 
-*   [handlebars](http://handlebarsjs.com)
+*   [CLDR.js](https://github.com/jamesarosen/CLDR.js) - provides the pluralization rules. For futher information please refer to the CLDR page on [cldr.unicode.org](http://cldr.unicode.org) 
 
-    mondo uses handlebar templates for string interpolation
-
-*   [CLDR.js](https://github.com/jamesarosen/CLDR.js)
-
-    provides the pluralization rules. For futher information please refer to the CLDR page on [cldr.unicode.org](http://cldr.unicode.org) 
-
-*   [underscorejs](http://underscorejs.org)
-    
-    No need to introduce this famous citizen of jsworld
+*   [underscorejs](http://underscorejs.org) - No need to introduce this famous citizen of jsworld
 
 Setting current locale
 ----------------------

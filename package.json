@@ -4,17 +4,22 @@
   "description": "i18n library for node and the browser",
   "main": "./lib/mondo.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/lchngr/mondo.git"
   },
   "dependencies": {
-    "globalize":"0.1.1",
-    "underscore":"1.4.4",
-    "handlebars":"1.0.8",
-    "cldr-plurals":"1.0.0"
+    "globalize": "0.1.1",
+    "underscore": "1.4.4",
+    "handlebars": "1.0.8",
+    "cldr-plurals": "1.0.0"
+  },
+  "devDependencies": {
+    "chai": "~1.5.0",
+    "mocha": "~1.8.1",
+    "underscore": "~1.4.4"
   },
   "keywords": [
     "i18n",
