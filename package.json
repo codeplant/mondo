@@ -1,6 +1,6 @@
 {
   "name": "mondo",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "i18n library for node and the browser",
   "main": "./lib/mondo.js",
   "scripts": {
@@ -31,6 +31,5 @@
   ],
   "author": "Stefan Lüchinger",
   "license": "BSD",
-  "readmeFilename": "README.md",
-  "gitHead": "9ba198d9d2464ca18ed5dc672852cd1ac77429a0"
+  "readmeFilename": "README.md"
 }

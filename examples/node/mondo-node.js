@@ -5,8 +5,8 @@ require('globalize/lib/cultures/globalize.culture.de-CH');
 require('globalize/lib/cultures/globalize.culture.fr-CH');
 
 //Add translations
-Mondo.addCultureInfo('de-CH',{ messages: { foo: 'das isch z foo', bar: { one: 'bar', other: 'bars'}}});
-Mondo.addCultureInfo('fr-CH',{ messages: { foo: "c'est trop foo"}});
+Mondo.addTranslation('de-CH',{ foo: 'das isch z foo', bar: { one: 'bar', other: 'bars'}});
+Mondo.addTranslation('fr-CH',{ foo: "c'est trop foo"});
 
 //Setting culture to be used
 Mondo.culture('de-CH');

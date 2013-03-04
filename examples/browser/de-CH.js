@@ -1,1 +1,1 @@
-Mondo.addCultureInfo('de-CH', { messages: { foo: 'foo'}});
+Mondo.addTranslation('de-CH', { foo: 'foo'});

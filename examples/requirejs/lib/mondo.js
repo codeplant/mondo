@@ -45,6 +45,14 @@ Mondo.time = Mondo.t = function(time) {
     return this.format(time,'t');
 };
 
+Mondo.currency = Mondo.c = function(amount) {
+    return this.format(amount,'c');
+};
+
+Mondo.percent = Mondo.p = function(number) {
+    return this.format(number,'p');
+};
+
 Mondo.parseInt = function(value, radix, culture) {
     return this.globalize.parseInt(value, radix, culture)
 };
@@ -58,27 +66,13 @@ Mondo.parseDate = function(value, formats, culture) {
 };
 
 Mondo.localize = Mondo.l = function(key, options) {
-    options = options || {};
     var pluralizedKey = this.pluralize(key, options);
     var message = this.translate(pluralizedKey);    
     return this.interpolate(message, options);
 };
 
-Mondo.interpolate = function(source, options) {
-    return this.handlebars.compile(source)(options);
-};
-
-Mondo.translate = function(key) {
-    var message = this.globalize.culture().messages;
-    var path = key.split('.');
-    for(part in path) {
-        message = message[path[part]];
-        if(!message) return '';
-    }
-    return message;
-};
-
 Mondo.pluralize = function(key, options) {
+    options = options || {};
     var pluralize = options.pluralize;
     if(pluralize || pluralize === 0) {
         var size;
@@ -87,9 +81,6 @@ Mondo.pluralize = function(key, options) {
         }
         else if(pluralize.length) {
             size = pluralize.length;    
-        }
-        else if(pluralize.size) {
-            size = pluralize.size;    
         }
         else if(this._.isObject(pluralize)) {
             size = this._.size(pluralize);
@@ -100,12 +91,30 @@ Mondo.pluralize = function(key, options) {
     return key;
 };
 
+Mondo.translate = function(key) {
+    var message = this.globalize.culture().messages;
+    var path = key.split('.');
+    for(var part in path) {
+        message = message[path[part]];
+        if(!message) return '';
+    }
+    return message;
+};
+
+Mondo.interpolate = function(source, options) {
+    return this.handlebars.compile(source)(options);
+};
+
 Mondo.culture = function(selector) {
     return this.globalize.culture(selector);
 };
 
+Mondo.addTranslation = function(cultureName, translations) {
+    this.addCultureInfo(cultureName, { messages: translations });
+};
+
 Mondo.addCultureInfo = function(cultureName, extendCultureName, info) {
     this.globalize.addCultureInfo(cultureName, extendCultureName, info);
-}
+};
 
 }(this));
