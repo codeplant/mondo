@@ -43,4 +43,34 @@ describe('formatting', function() {
         });
 
     });
+
+    describe('currency function', function() {
+
+        it('should format the given amount', function() {
+            var c = Mondo.currency(123.5);
+            c.should.be.a('string');
+            c.should.equal('Fr. 123.50');
+        });
+
+        it('c alias function should produce the same output', function() {
+            var c1 = Mondo.currency(123.5);
+            var c2 = Mondo.c(123.5);
+            c2.should.equal(c1);
+        });
+    });
+
+    describe('percent function', function() {
+
+        it('should format the given number', function() {
+            var p = Mondo.percent(0.2);
+            p.should.be.a('string');
+            p.should.equal('20.00%');
+        });
+
+        it('c alias function should produce the same output', function() {
+            var p1 = Mondo.percent(0.2);
+            var p2 = Mondo.p(0.2);
+            p2.should.equal(p1);
+        });
+    });
 });
