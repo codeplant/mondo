@@ -86,6 +86,10 @@ Allowed values for the pluralize option are:
 * Every object containing a size attribute or function.
 * Simple objects. The number of attributes is used.
 
+Shortcut if no other options need to be passed:
+
+`Mondo.localize('messageCount', 1)`
+
 Define interpolation
 ------------------------------
 

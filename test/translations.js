@@ -4,9 +4,10 @@ var should = require('chai').should();
 
 describe('adding translations', function() {
 
-    require('globalize/lib/cultures/globalize.culture.de-CH');
-
-    Mondo.culture('de-CH');
+    before(function(){
+        require('globalize/lib/cultures/globalize.culture.de-CH');
+        Mondo.culture('de-CH');
+    });
 
     it('should make translation available', function() {
 
@@ -16,11 +17,11 @@ describe('adding translations', function() {
 
     });
 
-    it('should make translation available', function() {
+    it('should make replaced translation available', function() {
 
-        Mondo.addTranslation('de-CH', { foo: { title: "bar" }});
-        Mondo.addTranslation('de-CH', { foo: { title: "replacement" }});
-        var translation = Mondo.localize('foo.title');
+        Mondo.addTranslation('de-CH', { toBeReplaced: { title: "bar" }});
+        Mondo.addTranslation('de-CH', { toBeReplaced: { title: "replacement" }});
+        var translation = Mondo.localize('toBeReplaced.title');
         translation.should.equal('replacement');    
 
     });
@@ -30,10 +31,10 @@ describe('adding translations', function() {
         Mondo.addTranslation('de-CH', { foo: { title: "bar" }});
         Mondo.addTranslation('de-CH', { foo: { subtitle: "subbar" }});
         Mondo.addTranslation('de-CH', { foo2: { title: "bar2" }});
-        Mondo.localize('foo.title').should.equal('bar');
+        
         Mondo.localize('foo.subtitle').should.equal('subbar');
         Mondo.localize('foo2.title').should.equal('bar2');
-
+        Mondo.localize('foo.title').should.equal('bar');
     });
 
 });

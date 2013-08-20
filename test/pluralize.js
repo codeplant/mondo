@@ -4,9 +4,10 @@ var should = require('chai').should();
 
 describe('pluralize', function() {
 
-    require('globalize/lib/cultures/globalize.culture.de-CH');
-
-    Mondo.culture('de-CH');
+    before(function() {
+        require('globalize/lib/cultures/globalize.culture.de-CH');
+        Mondo.culture('de-CH');
+    });
 
     describe('number as pluralize option', function() {
 
