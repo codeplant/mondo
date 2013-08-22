@@ -74,4 +74,62 @@ describe('formatting', function() {
             p2.should.equal(p1);
         });
     });
+
+    describe('isoDate function', function() {
+
+        it('should return a string', function() {
+            var iso = Mondo.isoDate(new Date());
+            iso.should.be.a('string');
+        });
+
+        it('should format the given date in the format yyy-MM-dd', function() {
+            var d = new Date('2013-08-27T08:15:42.123Z');
+            var iso = Mondo.isoDate(d);
+            iso.should.equal('2013-08-27');
+        });
+
+        it('i alias funtion should produce the same output', function() {
+            var d = new Date('2013-08-27T08:15:42.123Z');
+            var iso1 = Mondo.isoDate(d);
+            var iso2 = Mondo.i(d);
+            iso1.should.equal(iso2);
+        });
+
+        
+        it('should use a fallback if toISOString is not available', function() {
+            
+            var d = new Date('2013-08-27T08:15:42.123Z');
+            d.toISOString = false;
+            var iso = Mondo.isoDate(d);
+            iso.should.equal('2013-08-27');
+        });
+    });
+
+    describe('isoString function', function() {
+
+        it('should return a string', function() {
+            var iso = Mondo.isoString(new Date());
+            iso.should.be.a('string');
+        });
+
+        it('should format the given date in the ISO8601 format', function() {
+            var d = new Date('2013-08-27T08:15:42.123Z');
+            var iso = Mondo.isoString(d);
+            iso.should.equal('2013-08-27T08:15:42.123Z');
+        });
+
+        it('I alias funtion should produce the same output', function() {
+            var d = new Date('2013-08-27T08:15:42.123Z');
+            var iso1 = Mondo.isoString(d);
+            var iso2 = Mondo.I(d);
+            iso1.should.equal(iso2);
+        });
+
+        it('should use a fallback if toISOString is not available', function() {
+            var d = new Date('2013-08-27T08:15:42.123Z');
+            d.toISOString = false;
+            var iso = Mondo.isoString(d);
+            iso.should.equal('2013-08-27T08:15:42.123Z');
+        });
+    });
 });
