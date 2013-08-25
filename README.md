@@ -102,3 +102,11 @@ Using interpolation:
 `Mondo.localize("loggedInUser", { loginName: "lchngr" })`
 
 All options passed to the localize function passed to the handlebars template except the pluralize option.
+
+Helpers:
+
+{{d date}} - Formats the given date as a localized date
+{{t time}} - Formats the given date as a localized time
+{{p number}} - Formats the given number as percentage. e.g. n=1.23 --> '123%'
+{{c amount}} - Formats the given amount as localized currency a=123 --> 'Fr. 123'
+{{f value format}} - Formats the given value into the given format string. For details see: [globalize](https://github.com/jquery/globalize)
