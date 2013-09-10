@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Mondo : I18n library for node and the browser. Built on top of globalise, cldr, underscore and handlebars. The library provides locale based translations with interpolation and pluralization, parsing and formatting of dates and numbers." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Mondo</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/lchngr/mondo">View on GitHub</a>
+
+          <h1 id="project_title">Mondo</h1>
+          <h2 id="project_tagline">I18n library for node and the browser. Built on top of globalise, cldr, underscore and handlebars. The library provides locale based translations with interpolation and pluralization, parsing and formatting of dates and numbers.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/lchngr/mondo/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/lchngr/mondo/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="mondo" class="anchor" href="#mondo"><span class="octicon octicon-link"></span></a>mondo</h1>
+
+<p>mondo is a i18n library for node and the browser. It features date- and number formatting, translations with string interpolation and pluralization.</p>
+
+<p>see <a href="https://github.com/lchngr/mondo/issues?milestone=2&amp;state=open">github issues</a> for open task prior version 1.0.0</p>
+
+<h2>
+<a name="under-the-hood" class="anchor" href="#under-the-hood"><span class="octicon octicon-link"></span></a>Under the hood</h2>
+
+<p>mondo uses several other libraries under the hood:</p>
+
+<ul>
+<li><p><a href="https://github.com/jquery/globalize">globalize</a> - This library does the heavy lifting. globalize provides all the locale information for formatting and parsing.</p></li>
+<li><p><a href="http://handlebarsjs.com">handlebars</a> - mondo uses handlebar templates for string interpolation</p></li>
+<li><p><a href="https://github.com/jamesarosen/CLDR.js">CLDR.js</a> - provides the pluralization rules. For futher information please refer to the CLDR page on <a href="http://cldr.unicode.org">cldr.unicode.org</a> </p></li>
+<li><p><a href="http://underscorejs.org">underscorejs</a> - No need to introduce this famous citizen of jsworld</p></li>
+</ul><h2>
+<a name="setting-current-locale" class="anchor" href="#setting-current-locale"><span class="octicon octicon-link"></span></a>Setting current locale</h2>
+
+<p><code>Mondo.culture('fr-FR')</code></p>
+
+<h2>
+<a name="formatting" class="anchor" href="#formatting"><span class="octicon octicon-link"></span></a>Formatting</h2>
+
+<p><code>Mondo.format(value, format)</code> alias: <code>Mondo.f(value, format)</code></p>
+
+<p>Formats the given value according to the format. Please see (<a href="https://github.com/jquery/globalize#format">https://github.com/jquery/globalize#format</a>) for details and formatting patterns.</p>
+
+<p><code>Mondo.date(date)</code> alias: <code>Mondo.d(date)</code></p>
+
+<p>Shortcut for format(date, 'd') uses the short date pattern. e.g. "dd.MM.yyyy" for de-CH locale</p>
+
+<p><code>Mondo.time(date)</code> alias: `Mondo.t(date)</p>
+
+<p>Shortcut for format(date, 't') uses the short time pattern. e.g. "" for de-CH locale</p>
+
+<h2>
+<a name="defining-messages-for-translation" class="anchor" href="#defining-messages-for-translation"><span class="octicon octicon-link"></span></a>Defining messages for translation</h2>
+
+<h3>
+<a name="addtranslationslocale-messages" class="anchor" href="#addtranslationslocale-messages"><span class="octicon octicon-link"></span></a>addTranslations(locale, messages)</h3>
+
+<p>Add translation messages to the given locale (culture in globalize speak) definition.</p>
+
+<p><code>Mondo.addTranslations('en-US', { title: "Super awesome webapp" })</code></p>
+
+<p>To access the title message use:</p>
+
+<p><code>Mondo.localize('title')</code></p>
+
+<h2>
+<a name="nesting-messages" class="anchor" href="#nesting-messages"><span class="octicon octicon-link"></span></a>Nesting messages</h2>
+
+<p>It's possible to define nested message for a cleaner message file if lots of messages are used.</p>
+
+<p><code>Mondo.addTranslations('en-US', { loginForm: { labels: { username: "Username", password: "Password"}} })</code></p>
+
+<p>To access nested messages concatenate the single message keys by '.'</p>
+
+<p><code>Mondo.localize('loginForm.labels.username')</code></p>
+
+<h2>
+<a name="define-pluralizable-messages" class="anchor" href="#define-pluralizable-messages"><span class="octicon octicon-link"></span></a>Define pluralizable messages</h2>
+
+<p><code>Mondo.addTranslations('en-US', { messageCount: {
+    one: "message"
+    other: "messages"
+})</code></p>
+
+<p>Be aware languages have different rules for pluralization. English as in the above example knows only two different forms. Please refer to [cldr.unicode.org] or <a href="https://github.com/jamesarosen/CLDR.js">CLDR.js</a> for further information. Allowed pluralization labels are: zero, one, two, few, many, other.</p>
+
+<h2>
+<a name="using-pluralizable-messages" class="anchor" href="#using-pluralizable-messages"><span class="octicon octicon-link"></span></a>Using pluralizable messages</h2>
+
+<p>In addition to the key for the message you need to pass in the pluralization option. Don't include the pluralization label into the message key.</p>
+
+<p><code>Mondo.localize('messageCount', { pluralize: 1 })</code> or <code>localize('messageCount', { pluralize: 2 });</code></p>
+
+<p>Allowed values for the pluralize option are:</p>
+
+<ul>
+<li>Numbers</li>
+<li>Every object containing a length attribute or function, like Arrays.</li>
+<li>Every object containing a size attribute or function.</li>
+<li>Simple objects. The number of attributes is used.</li>
+</ul><p>Shortcut if no other options need to be passed:</p>
+
+<p><code>Mondo.localize('messageCount', 1)</code></p>
+
+<h2>
+<a name="define-interpolation" class="anchor" href="#define-interpolation"><span class="octicon octicon-link"></span></a>Define interpolation</h2>
+
+<p>Handlebars templates can be used to define interpolatable messages.</p>
+
+<p><code>Mondo.addTranslations('de-DE', { loggedInUser: "Sie sind eingeloggt als {{loginName}}"});</code></p>
+
+<p>Using interpolation:</p>
+
+<p><code>Mondo.localize("loggedInUser", { loginName: "lchngr" })</code></p>
+
+<p>All options passed to the localize function passed to the handlebars template except the pluralize option.</p>
+
+<p>Helpers:</p>
+
+<ul>
+<li>
+<code>{{d date}}</code> Formats the given date as a localized date</li>
+<li>
+<code>{{t time}}</code> Formats the given date as a localized time</li>
+<li>
+<code>{{p number}}</code> Formats the given number as percentage. e.g. n=1.23 --&gt; '123%'</li>
+<li>
+<code>{{c amount}}</code> Formats the given amount as localized currency a=123 --&gt; 'Fr. 123'</li>
+<li>
+<code>{{f value format}}</code> Formats the given value into the given format string. For details see: <a href="https://github.com/jquery/globalize">globalize</a>
+</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Mondo maintained by <a href="https://github.com/lchngr">lchngr</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
