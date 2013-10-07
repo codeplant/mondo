@@ -1,3 +1,12 @@
+v0.4.1
+======
+- fixed an issues which prevented using mondo library in minified javascripts 
+
+v0.4.0
+======
+- add isoDate formatting helpers: Mondo.i() for to format as iso date and Mondo.I() to format as full iso 8601 string.
+- added handlebar formatting helpers
+
 v0.3.0
 ======
 - cache compile handlebar messages
