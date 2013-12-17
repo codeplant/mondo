@@ -1,6 +1,8 @@
 mondo
 =====
 
+[![Dependency Status](https://david-dm.org/lchngr/mondo.png)](https://david-dm.org/lchngr/mondo)
+
 mondo is a i18n library for node and the browser. It features date- and number formatting, translations with string interpolation and pluralization.
 
 see [github issues](https://github.com/lchngr/mondo/issues?milestone=2&state=open) for open task prior version 1.0.0
