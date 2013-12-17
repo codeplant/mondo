@@ -1,3 +1,7 @@
+v0.4.2
+======
+- updated dependencies
+
 v0.4.1
 ======
 - fixed an issues which prevented using mondo library in minified javascripts 
