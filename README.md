@@ -1,6 +1,8 @@
 mondo
 =====
 
+Mondo has moved to a new home at codeplant(https://github.com/codeplant/mondo). Our brand new and shiny swiss based company. Visit us on codeplant.ch(http://codeplant.ch)
+
 [![Dependency Status](https://david-dm.org/lchngr/mondo.png)](https://david-dm.org/lchngr/mondo)
 [![Build](https://travis-ci.org/lchngr/mondo.png)](https://travis-ci.org/lchngr/mondo)
 
