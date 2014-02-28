@@ -1,3 +1,11 @@
+v0.4.4
+======
+- fixed leftovers from project move
+
+v0.4.3
+======
+- no changes, moved to codeplant home at codeplant/mondo
+
 v0.4.2
 ======
 - updated dependencies

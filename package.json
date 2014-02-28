@@ -1,6 +1,6 @@
 {
   "name": "mondo",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "i18n library for node and the browser",
   "main": "./lib/mondo.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lchngr/mondo.git"
+    "url": "https://github.com/codeplant/mondo.git"
   },
   "dependencies": {
     "globalize": "0.1.1",
